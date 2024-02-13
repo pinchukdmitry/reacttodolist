@@ -1,0 +1,41 @@
+.wrapper {
+  background: linear-gradient(
+    90deg,
+    rgba(227, 100, 28, 1) 0%,
+    rgba(255, 192, 0, 1) 100%
+  );
+
+  margin: 20px 350px 20px 350px;
+  padding: 5px;
+  align-items: center;
+  text-align: center;
+  background-color: aqua;
+  border-radius: 20px;
+  border-style: none;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.EnterData {
+  display: flex;
+  flex-direction: row;
+}
+
+.Header {
+  text-align: left;
+  margin: 5px 0px 5px 10px;
+}
+
+input {
+  width: 400px;
+  height: 34px;
+  background: linear-gradient(
+    90deg,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(215, 215, 215, 1) 100%
+  );
+  border-radius: 5px;
+  border-style: none;
+  margin-left: 5px;
+  text-indent: 10px;
+}
