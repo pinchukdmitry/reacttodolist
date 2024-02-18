@@ -10,29 +10,27 @@ export default function TaskForm() {
     if (listData) {
       setList(listData);
     }
-  }, []);
+  }, [list]);
 
   function handleChange(event) {
     setName(event.target.value);
   }
 
   function handleAdd() {
-    const newList = list.concat({ name });
+    list.push({ name });
 
-    setList(newList);
+    setList(list);
+
     setName("");
-    localStorage.setItem("list", JSON.stringify(newList));
+    localStorage.setItem("list", JSON.stringify(list));
   }
 
-  function handleDelete(obj, match) {
-    const arr = obj.map((object) => object.name);
-    const index = arr.indexOf(match);
-    arr.splice(index, 1);
+  function handleDelete(itemName) {
+    const indx = list.findIndex((v) => v.name === itemName);
+    list.splice(indx, indx >= 0 ? 1 : 0);
 
-    const output = arr.map((name) => ({ name }));
-
-    setList(output);
-    localStorage.setItem("list", JSON.stringify(output));
+    setList(list);
+    localStorage.setItem("list", JSON.stringify(list));
   }
 
   return (
@@ -51,7 +49,7 @@ export default function TaskForm() {
         {list.map((item) => (
           <li key={item.id}>
             {item.name}
-            <span onClick={() => handleDelete(list, item.name)}>&#10005;</span>
+            <span onClick={() => handleDelete(item.name)}>&#10005;</span>
           </li>
         ))}
       </ul>
